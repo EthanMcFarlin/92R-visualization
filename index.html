@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>92R Demo Visualization</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,400italic,700' rel='stylesheet'
+          type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/MarkerCluster.css">
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+</head>
+<body data-aos="fade-down" data-aos-duration="700">
+<div>
+    <section class="main-background-image" style="height:200px;background-image: url(../img/cambridge.jpg);">
+<!--            <div class="main-background-text" style="padding-top:100px;">-->
+<!--                <h1>COVID-19 State Data Transparency</h1>-->
+<!--                <p>GOV924 Spring 2022 Project</p>-->
+<!--            </div>-->
+    </section>
+    <div id="home-hero" class="section-1" id="section-1">
+        <div class="container">
+<!--            <div class="row">-->
+                <div class="col" id="home-hero-left">
+                    <h1 class="main-header-label-old">COVID-19 State Data Transparency</h1>
+                    <!--<h1 class="main-header-label" data-aos="fade-down" data-aos-duration="700" style="color: #AF550F">COVID-19 STATE DATA TRANSPARENCY</h1>-->
+                    <p class="sub-header-descriptor">Interactive Index Mapper</p>
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="container" class="section-2" id="section-2">
+<!--        <div class="background-info-box" data-aos="fade-right" data-aos-duration="950">-->
+<!--            <p class="paragraph-body"><span class="background-emphasis">Background: </span> Insert context about this area of study-->
+<!--            </p>-->
+<!--        </div>-->
+
+        <div class="visualization-header" id="introduction-to-psychology">
+            <div>
+                <h1 class="main-header-label visualization-header-text"><span class="new-color">A)</span> View Research Paper</h1>
+                <div class="header-rectangle"></div>
+            </div>
+            <p class="paragraph-body">The visualizations in this interactive webapp serve as accompaniment to a larger <a class="link-wrapper" target="_blank" href="https://docs.google.com/document/d/1mRILWGswPo0pnz5X8dJ6XfoAM-u4cRgD/edit?usp=sharing&ouid=110383589059326924192&rtpof=true&sd=true">study</a>
+                conducted by Dr. Sarah James at Harvard University, entitled, <span class="emphasis">"Disease, Data, and Dashboards: Explaining variation in COVID-19 Data Collection and Analysis"</span>. Leveraging data from a series of State Public Health Department websites, the paper introduces 6 novel indices, whose values can be downloaded directly or visualized using this tool.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="container" class="section-4" id="section-4">
+    <div class="justify-content-center visualization-header">
+        <div>
+            <h1 class="main-header-label visualization-header-text">B) Visualize Index Values</h1>
+            <div class="header-rectangle"></div>
+        </div>
+        <p class="paragraph-body">Select the relevant index category and hover over a state to reveal its value...
+        </p>
+    </div>
+    <div class="row justify-content-left visualization-container">
+        <div style="width:55vw;" class="visualization-container-right">
+            <select class="form-control" id="variable-type">
+                <option value="DataCollection_Index" selected>Data Collection Index</option>
+                <option value="RegionDemo_Index">Region Demo Index</option>
+                <option value="CombinedCollection_Index">Combined Collection Index</option>
+                <option value="Analytical_Index">Analytical Index</option>
+                <option value="RacialCollectionIndex">Racial Collection Index</option>
+                <option value="HealthAgencies">Health Agencies Index</option>
+            </select>
+            <div id="price-map"></div>
+<!--            <p class="paragraph-body visualization-source"><span>Source:</span> State Department of Public Health Websites-->
+        </div>
+    </div>
+</div>
+<div class="container" class="section-2" id="section-3">
+    <!--        <div class="background-info-box" data-aos="fade-right" data-aos-duration="950">-->
+    <!--            <p class="paragraph-body"><span class="background-emphasis">Background: </span> Insert context about this area of study-->
+    <!--            </p>-->
+    <!--        </div>-->
+
+    <div class="visualization-header">
+        <div>
+            <h1 class="main-header-label visualization-header-text"><span class="new-color">C)</span> Download Data</h1>
+            <div class="header-rectangle"></div>
+        </div>
+        <p class="paragraph-body">March 7th, 2022:
+            <a class="link-wrapper" href="https://docs.google.com/spreadsheets/d/11s9Ck1NwYLNSNKfQvw3J6PnR2siA3kVT/edit?usp=sharing&ouid=110383589059326924192&rtpof=true&sd=true" target="_blank">download</a>
+        </p>
+    </div>
+</div>
+<div class="container-spacing"></div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-contour@3"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Leaflet -->
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- scrollTo.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+
+<!-- Visualization objects -->
+<script src="js/utils.js"></script>
+<script src="js/homePriceIndexMap.js"></script>
+<script src="js/scrollingControl.js"></script>
+
+<!-- Load data, create visualizations -->
+<script src="js/main.js"></script>
+<script src="js/homePriceIndexMap_main.js"></script>
+
+</body>
+</html>
