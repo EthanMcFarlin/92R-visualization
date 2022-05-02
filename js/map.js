@@ -1,11 +1,4 @@
-
-/*
- *  HomePriceIndexMap - Object constructor function
- *  @param _parentElement   -- HTML element in which to draw the visualization
- *  @param _data            -- Array with all stations of the bike-sharing network
- */
-
-class HomePriceIndexMap {
+class Map {
 
 	/*
 	 *  Constructor method
@@ -88,14 +81,14 @@ class HomePriceIndexMap {
 				selected_state.bringToFront();
 			}
 
-			HPIMapBox.revealHover(selected_state.feature.properties);
+			MapBox.revealHover(selected_state.feature.properties);
 
 		}
 
 		function turnOffHighlight(state) {
 			vis.stateBoundaries.resetStyle(state.target);
 
-			HPIMapBox.revealHover(state.target.feature.properties);
+			MapBox.revealHover(state.target.feature.properties);
 
 		}
 
@@ -147,40 +140,38 @@ class HomePriceIndexMap {
 		}).addTo(vis.map);
 
 
+		let MapBox = L.control();
 
-
-		let HPIMapBox = L.control();
-
-		HPIMapBox.onAdd = function (map) {
-			this._div = L.DomUtil.create('div', 'HPIMapStateInfo'); // create a div with a class "info"
+		MapBox.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'MapStateInfo'); // create a div with a class "info"
 			this.revealHover();
 			return this._div;
 		};
 
-		HPIMapBox.revealHover = function (state) {
+		MapBox.revealHover = function (state) {
 			if (variable_type == "DataCollection_Index") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Data Collection Index:</span>' + ' ' + state.DataCollection_Index
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Data Collection Index:</span>' + ' ' + state.DataCollection_Index
 					: 'Hover over a state</div>');
 			} else if (variable_type == "RegionDemo_Index") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Region Demo Index:</span>' + ' ' + state.RegionDemo_Index
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Region Demo Index:</span>' + ' ' + state.RegionDemo_Index
 					: 'Hover over a state</div>');
 			} else if (variable_type == "CombinedCollection_Index") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Combined Collection Index:</span>' + ' ' + state.CombinedCollection_Index
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Combined Collection Index:</span>' + ' ' + state.CombinedCollection_Index
 					: 'Hover over a state</div>');
 			} else if (variable_type == "Analytical_Index") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Analytical Index:</span>' + ' ' + state.Analytical_Index
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Analytical Index:</span>' + ' ' + state.Analytical_Index
 					: 'Hover over a state</div>');
 			} else if (variable_type == "RacialCollectionIndex") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Racial Collection Index:</span>' + ' ' + state.RacialCollectionIndex
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Racial Collection Index:</span>' + ' ' + state.RacialCollectionIndex
 					: 'Hover over a state</div>');
 			} else if (variable_type == "HealthAgencies") {
 				this._div.innerHTML =  (state ?
-					'<b><span class="HPIMapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Health Agencies Index:</span>' + ' ' + state.HealthAgencies
+					'<b><span class="MapValueContainer">' + "State: " + state.name + '</span></b><br /><div><span>' + ' Health Agencies Index:</span>' + ' ' + state.HealthAgencies
 					: 'Hover over a state</div>');
 			}
 
@@ -193,7 +184,7 @@ class HomePriceIndexMap {
 
 		};
 
-		HPIMapBox.addTo(vis.map);
+		MapBox.addTo(vis.map);
 
 		function styleLines(d) {
 

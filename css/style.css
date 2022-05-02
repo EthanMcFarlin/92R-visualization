@@ -1,11 +1,21 @@
+.sub-header-descriptor {
+  color: #505050;
+  font-family: "Playfair Display";
+  font-size: 18pt;
+  text-align: center;
+  font-weight: 400;
+}
+
 body {
   font-family: "Helvetica Neue", sans-serif;
 }
 
-h1 {
+.main-header-label {
   text-align: center;
-  font-weight: bold;
-  font-size: xx-large;
+  font-family: "Playfair Display";
+  color: #191818;
+  margin-bottom: 20px;
+  font-size: 24pt;
 }
 
 h2 {
@@ -20,12 +30,10 @@ h3 {
   color: grey;
 }
 
-.main-header-label {
+h1 {
   text-align: center;
-  font-family: "Playfair Display";
-  color: #191818;
-  margin-bottom: 20px;
-  font-size: 24pt;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 .main-header-label-old {
@@ -34,15 +42,6 @@ h3 {
   color: #191818;
   margin-bottom: 20px;
   font-size: 24pt;
-}
-
-
-.sub-header-descriptor {
-  color: #505050;
-  font-family: "Playfair Display";
-  font-size: 18pt;
-  text-align: center;
-  font-weight: 400;
 }
 
 .sub-header-label {
@@ -54,6 +53,21 @@ h3 {
   width: 22%;
 }
 
+.empty-visualization {
+  width: 1000px;
+  height: 1000px;
+  background: #F6F6F8;
+}
+
+.visualization-label {
+  margin-top: 40px;
+  font-family: Montserrat;
+  font-size: 20pt;
+  color: #191818;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
 #home-hero {
   width: 60vw;
   background-size: cover;
@@ -61,13 +75,16 @@ h3 {
 }
 
 #home-hero-left {
+  border-radius: 12px;
+  border-top: 12px solid #ff9b3d;
   background: white;
   box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
   padding: 60px;
-/*  transform:translateY(-200px);*/
   margin-top: -100px;
-  border-radius: 12px;
-  border-top: 12px solid #ff9b3d;
+}
+
+.tooltip-emphasis {
+  font-weight: 600;
 }
 
 #home-hero-right {
@@ -117,20 +134,6 @@ h3 {
   margin-top: 20px;
 }
 
-.empty-visualization {
-  width: 1000px;
-  height: 1000px;
-  background: #F6F6F8;
-}
-
-.visualization-label {
-  margin-top: 40px;
-  font-family: Montserrat;
-  font-size: 20pt;
-  color: #191818;
-  margin-bottom: 20px;
-  text-align: left;
-}
 
 .visualization-title {
   /*font-family: Open Sans;*/
@@ -152,6 +155,30 @@ h3 {
 .visualization-source {
    margin-top: 25px;
    text-align: center;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: left;
+  max-width: 40em;
+  background: white;
+  padding: 2em;
+  font: 0.75em "Playfair Display";
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 4px;
+}
+
+
+.main-background-text {
+  text-align:center;
+  font-size:20px;
+  font-family:'Montserrat';
+  color:white;
+
+}
+
+.first-text {
+  margin-top: 15px;
 }
 
 .visualization-title > span, .visualization-source > span, .nav-tier > span {
@@ -180,24 +207,7 @@ h3 {
   text-anchor: middle;
 }
 
-.tooltip {
-  position: absolute;
-  text-align: left;
-  max-width: 40em;
-  background: white;
-  padding: 2em;
-  font: 0.75em "Playfair Display";
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-radius: 4px;
-}
 
-.tooltip-emphasis {
-  font-weight: 600;
-}
-
-.first-text {
-  margin-top: 15px;
-}
 
 .cell .label {
   font-family: Montserrat;
@@ -210,16 +220,13 @@ h3 {
   font-weight: bold;
 }
 
-
-
-.HPIMapValueContainer {
+.MapValueContainer {
   font-size:11pt;
   color: #191818;
   padding-bottom:120px;
 }
 
-
-.HPIMapStateInfo {
+.MapStateInfo {
   font-family: "Playfair Display";
   background: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -239,8 +246,6 @@ h3 {
   margin-top: 150px;
 }
 
-
-
 .main-background-image {
   background-position:center;
   background-size:cover;
@@ -249,30 +254,16 @@ h3 {
   background-blend-mode: multiply;
 }
 
-.main-background-text {
-  text-align:center;
-  color:white;
-  font-size:20px;
-  font-family:'Montserrat';
-/*  font-family: "Playfair Display"*/
-}
-
 .main-background-text > h1 {
   font-weight: 700;
 }
 
 .link-wrapper {
-  /*color: #74a7f7;*/
   color: #74a7f7;
-  /*font-weight: 700;*/
 }
 
 a {
   color: inherit;
-}
-
-.new-color {
-  /*color: #AF550F;*/
 }
 
 .emphasis {

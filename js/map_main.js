@@ -1,5 +1,5 @@
 // Variable for the visualization instance
-let homePriceMap;
+let Main_Map;
 let state_data_collection = {};
 let state_region_demo_data = {};
 let state_combined_collection = {};
@@ -7,14 +7,9 @@ let state_analytical = {};
 let state_racial_collection = {};
 let state_health_agencies = {};
 
-// let state_HPI_data = {};
-// let state_HPI_change_data = {};
-
 d3.csv("data/data_transparency_indices.csv").then(csv=> {
 
     csv.forEach(function(d){
-        // state_HPI_data[d.FIPS] = d.HPI;
-        // state_HPI_change_data[d.FIPS] = d.HPI_change;
 
         // DataCollection_Index
         // RegionDemo_Index
@@ -36,8 +31,6 @@ d3.csv("data/data_transparency_indices.csv").then(csv=> {
         let states = jsonData;
 
         states.features.forEach(function(d){
-            // d.properties.HPI = state_HPI_data[d.id];
-            // d.properties.HPI_change = state_HPI_change_data[d.id];
 
             d.properties.DataCollection_Index = state_data_collection[d.id];
             d.properties.RegionDemo_Index = state_region_demo_data[d.id];
@@ -48,7 +41,7 @@ d3.csv("data/data_transparency_indices.csv").then(csv=> {
 
         });
 
-        homePriceMap = new HomePriceIndexMap("price-map", states);
+        Main_Map = new Map("price-map", states);
 
     });
 
@@ -59,6 +52,6 @@ d3.select("#variable-type").on("change", changeFilter);
 
 function changeFilter(){
     variable_value = d3.select("#variable-type").property("value");
-    d3.select(".HPIMapStateInfo").remove();
-    homePriceMap.updateVis(variable_value)
+    d3.select(".MapStateInfo").remove();
+    Main_Map.updateVis(variable_value)
 }
